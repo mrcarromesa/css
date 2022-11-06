@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+body {
+  font-family: "Volkorn", Georgia, serif;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+/* GENERAL GRID */
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    "header header header"
+    "sidenav content ad"
+    "footer footer footer";
+}
+
+/* HEADER */
+
+.header {
+  grid-area: header;
+
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header nav a {
+  display: block;
+  padding: 10px;
+  color: white;
+  font-size: 1.125rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.header nav a:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Adjacente */
+.header li + li {
+  margin-left: 30px;
+}
+
+/* SIDENAV */
+.sidenav {
+  grid-area: sidenav;
+  background: #fafbfc;
+  padding: 30px;
+}
+
+.sidenav li a {
+  display: block;
+  gap: 10px;
+  min-width: 60px;
+  max-width: 100px;
+  margin: 0 auto 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  transition: 0.5s ease-out;
+}
+
+.sidenav li a:hover {
+  background: #b07dfb;
+}
+
+.content {
+  grid-area: content;
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.col-wide {
+  grid-column: 1 / -1;
+}
+
+.image-1 {
+  grid-row: span 2;
+  align-self: end;
+}
+
+.image-2 {
+  align-self: end;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.more-inf p + p {
+  margin-top: 30px;
+}
+
+.content-title {
+  color: #b07dfb;
+}
+
+.content-title h1 {
+  font-size: 3.75em;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.content-title span {
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+/* features */
+.features {
+  display: flex;
+  align-items: flex-start;
+}
+
+.features > div {
+  width: 80px;
+  text-align: center;
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.features > div:first-child {
+  margin-right: 30px;
+}
+
+.features .value {
+  color: #b07dfb;
+  font-size: 3em;
+  line-height: 1;
+  margin: 10px auto;
+  display: flex;
+  flex: 1;
+}
+
+.features .label {
+  background: white;
+  display: block;
+  border-radius: 0 0 5px 5px;
+  color: #b07dfb;
+  padding-block: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.text-feature {
+  font-size: 0.875em;
+  color: #b07dfb;
+  max-width: 16em;
+}
+
+.cite,
+.attrs {
+  align-self: start;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+
+.cite p {
+  font-size: 1.5em;
+  font-style: italic;
+  text-align: center;
+  max-width: 500px;
+  margin-inline: auto;
+  color: white;
+}
+
+.attrs li {
+  color: white;
+  font-family: Courier, monospace;
+  font-size: 1.125em;
+  padding: 15px;
+}
+
+.attrs li + li {
+  border-top: solid #b07dfb 2px;
+}
+
+/* AD */
+
+.ad {
+  grid-area: ad;
+
+  background: #fafbfc;
+  display: grid;
+  align-content: start;
+  padding: 30px;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.footer {
+  grid-area: footer;
+
+  background: linear-gradient(135deg, #8844ee, #b07dfb);
+}
+
+.footer p {
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav ad ad"
+      "footer footer footer";
+  }
+}
+
+@keyframes arrow {
+  from {
+    right: 30px;
+  }
+  top {
+    right: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "ad"
+      "footer";
+  }
+  .header {
+    grid-template-columns: auto;
+  }
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  .header nav a {
+    font-size: 1em;
+  }
+
+  .header li + li {
+    margin-left: 10px;
+  }
+
+  .sidenav {
+    position: relative;
+    overflow-x: auto;
+    padding: 0 30px;
+  }
+
+  .sidenav::before {
+    content: "→";
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    color: rgba(0, 0, 0, 0.3);
+    animation: arrow 0.5s ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .sidenav ul li {
+    flex: 1 0 60px;
+  }
+
+  .sidenav li a {
+    margin: 30px 30px 30px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: auto;
+  }
+}

@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+}
+
+.container {
+  width: 400px;
+  padding: 10px;
+}
+
+.item {
+  background: tomato;
+}
+
+.grid-template-columns {
+  grid-template-columns: 200px 200px;
+  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+}
+
+.grid-template-columns-3 {
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-gap: 10px;
+}
+
+.subgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.subgrid > div {
+  background-color: red;
+}
